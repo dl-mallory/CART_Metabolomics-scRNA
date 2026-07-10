@@ -31,12 +31,6 @@ Stage 0 is separate and not included here (it needs the mouse WTA reference and
 record, they were produced with the **BD Rhapsody Sequence Analysis Pipeline
 v2.2.1** (CWL) against `RhapRef_Mouse_WTA_2023-02`, Sample Tag version `mm`.
 
-**Push with the `git` CLI, not the browser.** The raw counts
-(`data/bd_pipeline_out/.../matrix.mtx.gz`, 72 MB) and the largest processed matrix
-(`results/matrices/expr_macrophages.csv.gz`, 37 MB) both exceed the 25 MB cap on
-GitHub's web uploader. Both are well under git's 100 MB per-file hard limit, so a
-normal `git push` takes them (it prints a size advisory above 50 MB).
-
 ## Layout
 
 | path | contents |
