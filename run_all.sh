@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Regenerate every panel of the figure from the staged BD Rhapsody counts.
-# Stage 0 (FASTQ -> counts) is separate; see pipeline/00_bd_rhapsody/README.md.
+# Stage 0 (FASTQ -> counts) is separate and not included; its outputs are staged
+# in data/bd_pipeline_out/. See README.md.
 set -euo pipefail
 cd "$(dirname "$0")"
 mkdir -p logs

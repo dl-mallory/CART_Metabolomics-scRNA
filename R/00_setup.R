@@ -9,6 +9,8 @@ DIR <- list(
     bd       = "data/bd_pipeline_out",
     objects  = "results/objects",
     figures  = "results/figures/published",
+    tables   = "results/tables",
+    matrices = "results/matrices",
     checks   = "checks"
 )
 
@@ -95,3 +97,5 @@ EXPECTED <- list(
 
 dir.create(DIR$objects, recursive = TRUE, showWarnings = FALSE)
 dir.create(DIR$figures, recursive = TRUE, showWarnings = FALSE)
+dir.create(DIR$tables, recursive = TRUE, showWarnings = FALSE)
+dir.create(DIR$matrices, recursive = TRUE, showWarnings = FALSE)

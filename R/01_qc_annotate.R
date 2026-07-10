@@ -12,6 +12,7 @@ suppressPackageStartupMessages({
     library(harmony); library(ggrastr); library(scattermore)
 })
 source("R/00_setup.R")
+source("R/lib/export.R")
 
 # ---- load counts and sample tags -------------------------------------------
 counts <- Read10X(data.dir = BD$mex)[["Gene Expression"]]
@@ -80,7 +81,47 @@ stopifnot(
 )
 stopifnot(setequal(names(CELLTYPE_COLORS), levels(nk$CellType1)))
 
-saveRDS(nk, file.path(DIR$objects, "nk_annotated.rds"))
+# Save a slimmed object: `data` + reductions + metadata. Dropped are scale.data
+# (a DENSE 2000 x 13325 block), the RNA_nn/RNA_snn graphs, and the `counts` layer
+# -- 140 MB -> 58 MB. All three are recomputable scratch, not data: counts are in
+# data/bd_pipeline_out/, and stages 2-3 use only the `data` layer (FindMarkers
+# returns identical results either way, verified). `nk` in memory keeps
+# everything, so the panels below are unaffected.
+saveRDS(DietSeurat(nk, layers = "data", dimreducs = c("pca", "harmony", "umap"),
+                   graphs = NULL),
+        file.path(DIR$objects, "nk_annotated.rds"))
+
+# ---- CSV exports: the object, as tables ------------------------------------
+# nk_annotated.rds is the authoritative object. These reconstitute it: the
+# per-cell-type matrices carry the processed expression, cells_metadata.csv the
+# per-cell annotation, and the embeddings the reductions. R/combine_matrices.R
+# rebuilds a Seurat object from them and checks it against the original.
+message("  exporting per-cell metadata and embeddings")
+cells_metadata <- data.frame(
+    Cell            = colnames(nk),
+    SampleID        = as.character(nk$SampleID),
+    seurat_clusters = as.character(nk$seurat_clusters),
+    CellType1       = as.character(nk$CellType1),
+    nCount_RNA      = nk$nCount_RNA,
+    nFeature_RNA    = nk$nFeature_RNA,
+    percent.mt      = round(nk$percent.mt, 4),
+    percent.rb      = round(nk$percent.rb, 4),
+    FibroblastScore1    = round(nk$FibroblastScore1, 6),
+    FibroblastScoreFull = round(nk$FibroblastScoreFull, 6),
+    round(Embeddings(nk, reduction = "umap"), 6),
+    row.names = NULL
+)
+stopifnot(nrow(cells_metadata) == EXPECTED$cells_total)
+write_table(cells_metadata, "cells_metadata.csv", DIR$tables)
+
+for (red in c("pca", "harmony")) {
+    e <- data.frame(Cell = colnames(nk), round(Embeddings(nk, reduction = red), 6),
+                    row.names = NULL)
+    write_table(e, sprintf("embeddings_%s.csv.gz", red), DIR$tables)
+}
+
+message("  exporting processed expression, one dense CSV per cell type")
+manifest <- export_celltype_matrices(nk, DIR$matrices)
 
 # ---- panels -----------------------------------------------------------------
 # geom_jitter_rast() jitters without a seed; fix it so panels are pixel-stable.
@@ -110,6 +151,14 @@ base_umap <- function(mapping, colours, alpha_col = NULL,
 
 # Panel B -- both variants derive from ONE plot object, so they cannot drift apart
 panel_b <- base_umap(aes(color = CellType1), CELLTYPE_COLORS)
+
+# Plotted data for panel B: one row per point, with the colour it is drawn in.
+write_table(
+    data.frame(Cell = rownames(umap), umap_1 = round(umap$umap_1, 6),
+               umap_2 = round(umap$umap_2, 6),
+               CellType1 = as.character(umap$CellType1),
+               colour = unname(CELLTYPE_COLORS[as.character(umap$CellType1)])),
+    "panelB_umap_celltype.csv", DIR$tables)
 ggsave(file.path(DIR$figures, "panelB_umap_with_legend.svg"),
        panel_b + theme(legend.position = "right"), width = 5, height = 5)
 ggsave(file.path(DIR$figures, "panelB_umap_without_legend.svg"),
@@ -118,6 +167,16 @@ ggsave(file.path(DIR$figures, "panelB_umap_without_legend.svg"),
 # Panel D -- one arm highlighted at a time
 umap$AdipoAlpha <- if_else(umap$SampleID == "Adipo_Cocultured", 1, 0.3)
 umap$FibroAlpha <- if_else(umap$SampleID == "Fibro_Cocultured", 1, 0.3)
+
+# Plotted data for panel D: same points as B, keyed on arm, with each variant's
+# alpha. The two SVGs differ only in which arm is opaque.
+write_table(
+    data.frame(Cell = rownames(umap), umap_1 = round(umap$umap_1, 6),
+               umap_2 = round(umap$umap_2, 6),
+               SampleID = as.character(umap$SampleID),
+               AdipoAlpha = umap$AdipoAlpha, FibroAlpha = umap$FibroAlpha),
+    "panelD_umap_sample.csv", DIR$tables)
+
 for (arm in c("Adipo", "Fibro")) {
     p <- base_umap(aes(color = SampleID),
                    if (arm == "Adipo") ADIPO_HIGHLIGHT else FIBRO_HIGHLIGHT,
@@ -140,6 +199,12 @@ panel_c_data <- data.frame(Embeddings(nk, reduction = "umap")) |>
     group_by(Gene) |>
     mutate(ExpressionScaled = Expression / max(Expression, na.rm = TRUE)) |>
     ungroup()
+
+# Plotted data for panel C: one row per cell per marker gene. ExpressionScaled is
+# what the colour encodes -- expression divided by that gene's own maximum, so
+# colours are not comparable between facets.
+write_table(panel_c_data |> mutate(across(where(is.numeric), \(x) round(x, 6))),
+            "panelC_marker_expression.csv.gz", DIR$tables)
 
 panel_c <- ggplot(panel_c_data, aes(x = umap_1, y = umap_2)) +
     geom_scattermore(pointsize = 4, colour = "black") +

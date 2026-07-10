@@ -22,6 +22,7 @@ suppressPackageStartupMessages({
 })
 source("R/00_setup.R")
 source("R/lib/gsea_utils.R")
+source("R/lib/export.R")
 
 stopifnot(packageVersion("msigdbr") == "24.1.0")   # MSigDB v2024.1; see README
 
@@ -54,6 +55,40 @@ message("reproduction against the archived panels:")
 check_panel(panel_f, "tcell_gsea_upreg_terms.txt", "panel F (T cells)")
 check_panel(panel_h, "macro_gsea_upreg_terms.txt", "panel H (macrophages)")
 
+# ---- CSV exports: full GSEA result, and the 18 rows each panel draws ---------
+for (nm in c("tcells", "macrophages")) {
+    g <- if (nm == "tcells") tcell_gsea else macro_gsea
+    write_table(g, sprintf("gsea_%s.csv.gz", nm), DIR$tables)
+}
+
+# Rows are written in plot order (bottom of the y-axis first, as the factor
+# levels were set). PercentSet is the x position, Count the point size, qvalue
+# the fill. NES is carried even though the panel never plots it -- it is the
+# column that reveals panel F's mixed directions.
+# df carries the untouched ID column; do not reconstruct it from Description,
+# which format_gsea_panel() rewrites (it strips MEDIATED BY ANTIMICROBIAL PEPTIDE).
+panel_rows <- function(df, gsea) {
+    i <- match(df$ID, gsea$ID)
+    stopifnot(!anyNA(i))
+    data.frame(
+        PlotOrder   = seq_len(nrow(df)),
+        Description = as.character(df$Description),
+        ID          = df$ID,
+        PercentSet  = round(df$PercentSet, 6),
+        Count       = df$Count,
+        setSize     = df$setSize,
+        qvalue      = df$qvalue,
+        pvalue      = gsea$pvalue[i],
+        p.adjust    = gsea$p.adjust[i],
+        NES         = round(gsea$NES[i], 6),
+        enrichmentScore = round(gsea$enrichmentScore[i], 6),
+        core_enrichment = gsea$core_enrichment[i],
+        row.names = NULL
+    )
+}
+write_table(panel_rows(panel_f, tcell_gsea), "panelF_gsea_tcells.csv",      DIR$tables)
+write_table(panel_rows(panel_h, macro_gsea), "panelH_gsea_macrophages.csv", DIR$tables)
+
 for (nm in c("F", "H")) {
     df <- if (nm == "F") panel_f else panel_h
     cell <- if (nm == "F") "tcells" else "macrophages"
@@ -66,9 +101,10 @@ for (nm in c("F", "H")) {
 
 # Make the direction visible in the numbers even though the plot hides it.
 report <- function(df, gsea, label) {
-    ids <- paste0("GOBP_", gsub(" ", "_", as.character(df$Description)))
-    nes <- gsea$NES[match(ids, gsea$ID)]
-    neg <- which(!is.na(nes) & nes < 0)
+    # match on the carried ID, not on a Description that format_gsea_panel rewrote
+    nes <- gsea$NES[match(df$ID, gsea$ID)]
+    stopifnot(!anyNA(nes))
+    neg <- which(nes < 0)
     if (length(neg))
         warning(sprintf("%s: %d of %d rows have NEGATIVE NES (enriched in %s): %s",
                         label, length(neg), nrow(df), IDENT_2,

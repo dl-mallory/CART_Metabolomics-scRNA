@@ -1,0 +1,9 @@
+CellType,part,file,genes,cells,nonzero,pct_nonzero,file_mb
+Dendritic Cells,1,expr_dendritic_cells.csv.gz,26182,114,147292,4.93,0.48
+Macrophages,1,expr_macrophages.csv.gz,26182,6585,11052362,6.41,37.14
+Mast Cells,1,expr_mast_cells.csv.gz,26182,34,40259,4.52,0.17
+Monocytes,1,expr_monocytes.csv.gz,26182,3167,4555122,5.49,15.85
+Myeloid Progenitors,1,expr_myeloid_progenitors.csv.gz,26182,1029,2237815,8.31,7.02
+Neutrophils,1,expr_neutrophils.csv.gz,26182,140,121941,3.33,0.47
+NK Cells,1,expr_nk_cells.csv.gz,26182,668,1368482,7.82,4.26
+T Cells,1,expr_t_cells.csv.gz,26182,1588,2598995,6.25,8.81
