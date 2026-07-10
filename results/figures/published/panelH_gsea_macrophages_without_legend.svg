@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='360.00pt' viewBox='0 0 576.00 360.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='0.00' y='0.00' width='576.00' height='360.00' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMzQxLjc0fDU2Ni4wNHwwLjAwfDMzMi44Nw=='>
+    <rect x='341.74' y='0.000000000000057' width='224.30' height='332.87' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMzQxLjc0fDU2Ni4wNHwwLjAwfDMzMi44Nw==)'>
+<rect x='341.74' y='0.00' width='224.30' height='332.87' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<circle cx='360.43' cy='321.89' r='8.36' style='stroke-width: 0.71; fill: #EDB081;' />
+<circle cx='364.22' cy='303.60' r='5.96' style='stroke-width: 0.71; fill: #AA3A6F;' />
+<circle cx='370.36' cy='285.31' r='7.13' style='stroke-width: 0.71; fill: #DC927D;' />
+<circle cx='376.53' cy='267.03' r='4.23' style='stroke-width: 0.71; fill: #D78A7C;' />
+<circle cx='384.67' cy='248.74' r='8.75' style='stroke-width: 0.71; fill: #EDB081;' />
+<circle cx='391.37' cy='230.45' r='6.37' style='stroke-width: 0.71; fill: #E9A980;' />
+<circle cx='394.44' cy='212.16' r='8.89' style='stroke-width: 0.71; fill: #EDB081;' />
+<circle cx='403.79' cy='193.87' r='7.45' style='stroke-width: 0.71; fill: #D78A7C;' />
+<circle cx='408.18' cy='175.58' r='7.62' style='stroke-width: 0.71; fill: #DD947D;' />
+<circle cx='417.31' cy='157.29' r='7.58' style='stroke-width: 0.71; fill: #EDB081;' />
+<circle cx='434.41' cy='139.00' r='5.35' style='stroke-width: 0.71; fill: #E7A580;' />
+<circle cx='451.85' cy='120.71' r='8.79' style='stroke-width: 0.71; fill: #AF4471;' />
+<circle cx='459.40' cy='102.42' r='7.27' style='stroke-width: 0.71; fill: #EDB081;' />
+<circle cx='477.90' cy='84.13' r='5.96' style='stroke-width: 0.71; fill: #ECAF81;' />
+<circle cx='494.62' cy='65.84' r='6.15' style='stroke-width: 0.71; fill: #EDAF81;' />
+<circle cx='506.05' cy='47.55' r='4.95' style='stroke-width: 0.71; fill: #DC927D;' />
+<circle cx='535.20' cy='29.26' r='2.49' style='stroke-width: 0.71; fill: #B44D72;' />
+<circle cx='547.35' cy='10.97' r='4.67' style='stroke-width: 0.71; fill: #E39F7F;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<polyline points='341.74,332.87 341.74,0.000000000000057 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<text x='336.81' y='326.19' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='145.11px' lengthAdjust='spacingAndGlyphs'>CYTOKINE PRODUCTION</text>
+<text x='336.81' y='307.90' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='207.33px' lengthAdjust='spacingAndGlyphs'>AMEBOIDAL TYPE CELL MIGRATION</text>
+<text x='336.81' y='289.61' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='184.91px' lengthAdjust='spacingAndGlyphs'>CELLULAR RESPONSE TO LIPID</text>
+<text x='336.81' y='271.32' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='315.08px' lengthAdjust='spacingAndGlyphs'>REGULATION OF RESPONSE TO CYTOKINE STIMULUS</text>
+<text x='336.81' y='253.03' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='163.78px' lengthAdjust='spacingAndGlyphs'>INFLAMMATORY RESPONSE</text>
+<text x='336.81' y='234.74' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='264.20px' lengthAdjust='spacingAndGlyphs'>REGULATION OF INFLAMMATORY RESPONSE</text>
+<text x='336.81' y='216.46' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='119.55px' lengthAdjust='spacingAndGlyphs'>RESPONSE TO LIPID</text>
+<text x='336.81' y='198.17' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='304.17px' lengthAdjust='spacingAndGlyphs'>POSITIVE REGULATION OF CYTOKINE PRODUCTION</text>
+<text x='336.81' y='179.88' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='326.84px' lengthAdjust='spacingAndGlyphs'>NEGATIVE REGULATION OF IMMUNE SYSTEM PROCESS</text>
+<text x='336.81' y='161.59' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='253.75px' lengthAdjust='spacingAndGlyphs'>CYTOKINE MEDIATED SIGNALING PATHWAY</text>
+<text x='336.81' y='143.30' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='198.02px' lengthAdjust='spacingAndGlyphs'>MONONUCLEAR CELL MIGRATION</text>
+<text x='336.81' y='125.01' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='178.44px' lengthAdjust='spacingAndGlyphs'>IMMUNE EFFECTOR PROCESS</text>
+<text x='336.81' y='106.72' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='143.09px' lengthAdjust='spacingAndGlyphs'>LEUKOCYTE MIGRATION</text>
+<text x='336.81' y='88.43' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='200.42px' lengthAdjust='spacingAndGlyphs'>MYELOID LEUKOCYTE MIGRATION</text>
+<text x='336.81' y='70.14' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='154.44px' lengthAdjust='spacingAndGlyphs'>LEUKOCYTE CHEMOTAXIS</text>
+<text x='336.81' y='51.85' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='161.77px' lengthAdjust='spacingAndGlyphs'>GRANULOCYTE MIGRATION</text>
+<text x='336.81' y='33.56' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='162.22px' lengthAdjust='spacingAndGlyphs'>RESPONSE TO CHEMOKINE</text>
+<text x='336.81' y='15.27' text-anchor='end' style='font-size: 12.00px; font-family: "Arial";' textLength='173.11px' lengthAdjust='spacingAndGlyphs'>GRANULOCYTE CHEMOTAXIS</text>
+<polyline points='339.00,321.89 341.74,321.89 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,303.60 341.74,303.60 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,285.31 341.74,285.31 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,267.03 341.74,267.03 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,248.74 341.74,248.74 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,230.45 341.74,230.45 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,212.16 341.74,212.16 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,193.87 341.74,193.87 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,175.58 341.74,175.58 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,157.29 341.74,157.29 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,139.00 341.74,139.00 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,120.71 341.74,120.71 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,102.42 341.74,102.42 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,84.13 341.74,84.13 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,65.84 341.74,65.84 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,47.55 341.74,47.55 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,29.26 341.74,29.26 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='339.00,10.97 341.74,10.97 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='341.74,332.87 566.04,332.87 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='422.24,335.61 422.24,332.87 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='506.05,335.61 506.05,332.87 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<text x='422.24' y='344.96' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>30%</text>
+<text x='506.05' y='344.96' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>40%</text>
+<text x='453.89' y='357.68' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";' textLength='71.62px' lengthAdjust='spacingAndGlyphs'>% of Gene Set</text>
+</g>
+</g>
+</svg>
