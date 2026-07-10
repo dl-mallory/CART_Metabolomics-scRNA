@@ -35,12 +35,12 @@ v2.2.1** (CWL) against `RhapRef_Mouse_WTA_2023-02`, Sample Tag version `mm`.
 
 | path | contents |
 |---|---|
-| `data/fastq/` | raw reads (**filenames still to be supplied**) |
+| `data/fastq/` | raw reads (**filenames to be provided at publication**) |
 | `data/bd_pipeline_out/` | the two Rhapsody outputs the analysis actually consumes |
 | `R/00_setup.R` | all paths, thresholds, colours, cluster→cell-type map, expected counts |
 | `R/01_qc_annotate.R` | panels B, C, D + `nk_annotated.rds` |
 | `R/02_de_volcanoes.R` | panels E, G |
-| `R/03_gsea_published.R` | panels F, H — **reproduces the published panels, defects included** |
+| `R/03_gsea_published.R` | panels F, H |
 | `R/combine_matrices.R` | rebuilds the full Seurat object from the CSV exports |
 | `results/tables/` | the data plotted in every panel, as CSV |
 | `results/matrices/` | processed expression, one dense CSV per cell type |
