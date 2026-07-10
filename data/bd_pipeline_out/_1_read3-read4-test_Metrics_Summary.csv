@@ -1,0 +1,32 @@
+####################
+## BD Rhapsody Sequence Analysis Pipeline Version 2.2.1
+## Analysis Date - Thu Aug 22 2024 12:04:53
+## Libraries - Bioproduct Libraries: read1_sample1 | ATAC Libraries: None | Bead version detected: Enhanced V2/V3
+## References - Reference Archive: RhapRef_Mouse_WTA_2023-02.tar.gz | AbSeq Reference: AbSeq.fasta | Supplemental Reference: None | ATAC Predefined Peak Regions: None
+## Parameters - Sample Tag Version: mm | Sample Tag Names: 1-mouse1; 2-mouse2 | VDJ Version: None | Putative Cell Calling Data: mRNA | Bioproduct Cell Calling Algorithm: Basic | ATAC Cell Calling Algorithm: None | Exclude Intronic Reads: Off | Generate Bam: Off | Exact Cell Count: None | Expected Cell Count: None | Long Reads: auto | Custom STAR Params: None | Custom bwa-mem2 Params: None
+####################
+#Sequencing Quality#
+Total_Reads_in_FASTQ,Pct_Read_Pair_Overlap,Pct_Reads_Too_Short,Pct_Reads_Low_Base_Quality,Pct_Reads_High_SNF,Pct_Reads_Filtered_Out,Library
+120623153,0,1.44,0.42,4.01,5.87,read1_sample1
+
+#Library Quality#
+Total_Filtered_Reads,Pct_Q30_Bases_in_Filtered_R2,Pct_CellLabel_UMI,Pct_CellLabel_UMI_Aligned_Uniquely,Pct_Reads_Useful,Library
+113547095,91.02,92.79,87.29,76.39,read1_sample1
+
+#Alignment Categories#
+Total_CellLabel_UMI_Reads,Annotated_Transcriptome_Pct,Introns_Pct,Intergenic_Regions_Pct,Antisense_Pct,Not_Unique_Pct,Ambiguous_Pct,No_Feature_Pct,AbSeq_Pct,Sample_Tag_Pct,VDJ_TCR_Pct,VDJ_BCR_Pct,Unaligned_Pct,Library
+105355897,67.5,5.42,3.74,2.35,4.79,0.87,0.01,4.21,5.2,0,0,5.92,read1_sample1
+
+#Reads and Molecules#
+Aligned_Reads_By_Type,Total_Raw_Molecules,Total_RSEC_Molecules,Mean_Raw_Sequencing_Depth,Mean_RSEC_Sequencing_Depth,Sequencing_Saturation,Bioproduct_Type
+76824273,69027632,68951567,1.11,1.11,19.33,mRNA
+4433041,2520868,2471710,1.76,1.79,70.17,AbSeq
+
+#Cells#
+Putative_Cell_Count,Pct_Reads_from_Putative_Cells,Mean_Reads_per_Cell,Median_Reads_per_Cell,Mean_Molecules_per_Cell,Median_Molecules_per_Cell,Mean_Bioproducts_per_Cell,Median_Bioproducts_per_Cell,Total_Bioproducts_Detected,Bioproduct_Type
+15632,84.13,4134.66,3716.5,3710.77,3340.0,1712.33,1636.0,26182,mRNA
+15632,26.66,75.9,43.0,42.22,24.0,2.9,3.0,3,AbSeq
+
+#Sample_Tags#
+Sample_Tag_Filtered_Reads,ST_Pct_Reads_from_Putative_Cells
+5481913,71.42
