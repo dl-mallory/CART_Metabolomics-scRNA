@@ -64,34 +64,12 @@ without running R.
 | `panelF_gsea_tcells.csv` | F | plotted gene set, in plot order |
 | `panelH_gsea_macrophages.csv` | H | plotted gene set, in plot order |
 
-`Class` in the volcano tables reconstructs EnhancedVolcano's four colour
-categories. For panel G it reproduces the published SVG's circle census exactly:
-7,801 `NS`, 839 `log2FC_only`, 57 `p_adj_only`, 109 `p_adj_and_log2FC`.
-
-The GSEA panel tables carry `NES` even though the dot plot never encodes it —
-that is the column that exposes panel F's three fibroblast-enriched rows.
-
-Also written: `cells_metadata.csv` (per-cell annotation + UMAP coordinates),
-`embeddings_{pca,harmony}.csv.gz`, the full `de_*.csv`, and the full
-`gsea_*.csv.gz`.
-
 ### Per-cell-type matrices, and putting them back together
 
 `results/matrices/expr_<celltype>.csv.gz` holds processed (scran log-normalised)
 expression, genes × cells, one file per cell type, with `manifest.csv` recording
 the dimensions of each. Values are rounded to 4 decimal places — which, on this
-dataset, loses no non-zeros at all. 74 MB across 8 files, the largest 37 MB
-(macrophages), all far below git's 100 MB per-file limit.
-
-Every file carries **all 26,182 genes in identical row order**, so the files
-concatenate on columns with no re-alignment. Filtering each file to its own
-detected genes would save ~1% and would silently misalign anyone who `cbind`-ed
-them, so it is not done. `combine_matrices.R` asserts the invariant on every file.
-
-A cell type above `CELLS_PER_FILE` would be split into `_p01`, `_p02` … parts,
-splitting on **cells, not genes**, so parts concatenate exactly like whole cell
-types. Nothing splits at the current threshold; the export warns if any file
-approaches the git limit.
+dataset, loses no non-zeros at all. 
 
 ```sh
 Rscript R/combine_matrices.R            # -> results/objects/nk_from_csv.rds
@@ -102,9 +80,7 @@ Rscript R/combine_matrices.R --no-save  # rebuild and verify only
 
 The CSVs hold log-normalised expression only, and no `counts` layer is attached to
 either object — the raw counts already sit, losslessly, in
-`data/bd_pipeline_out/`. Duplicating 22.1 M integers into an `.rds` would add
-~46 MB of numbers the repo already has.
-
+`data/bd_pipeline_out/`. 
 They are recovered exactly, whenever needed, with one line:
 
 ```r
@@ -119,8 +95,7 @@ pre-slimming object: same dimensions, same dimnames, same sparsity pattern,
 It rebuilds expression, metadata, cluster and cell-type factors, `Idents()`, and
 the PCA / Harmony / UMAP reductions; re-checks the pipeline's own guards (13,325
 cells, 16 clusters, exact per-cell-type and per-arm counts); and, when
-`nk_annotated.rds` is present, diffs the expression against it. Observed
-`max |diff| = 5.0e-05`, which is exactly the 4-dp rounding and nothing else.
+`nk_annotated.rds` is present, diffs the expression against it. 
 
 ### What the saved objects contain
 
