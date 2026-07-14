@@ -14,6 +14,7 @@ FASTQ ──stage 0──▶ BD Rhapsody v2.2.1 ──▶ counts + sample tags
                                              │   → panels B, C, D
                    stage 2 ─────────────────▶│ FindMarkers → panels E, G
                    stage 3 ─────────────────▶│ GSEA        → panels F, H
+                   stage 4 ─────────────────▶│ Nfe2l2 boxplots → Fig S12
 ```
 
 ## Run it
@@ -41,10 +42,11 @@ v2.2.1** (CWL) against `RhapRef_Mouse_WTA_2023-02`, Sample Tag version `mm`.
 | `R/01_qc_annotate.R` | panels B, C, D + `nk_annotated.rds` |
 | `R/02_de_volcanoes.R` | panels E, G |
 | `R/03_gsea_published.R` | panels F, H |
+| `R/04_nfe2l2_boxplot.R` | Fig S12, Nfe2l2 expression by cell subset |
 | `R/combine_matrices.R` | rebuilds the full Seurat object from the CSV exports |
 | `results/tables/` | the data plotted in every panel, as CSV |
 | `results/matrices/` | processed expression, one dense CSV per cell type |
-| `checks/` | the archived term lists, used as regression fixtures |
+| `checks/` | archived term lists, used as regression fixtures |
 | `env/rlib/` | pinned `msigdbr 24.1.0` |
 
 ## Data exports
@@ -63,6 +65,8 @@ without running R.
 | `panelG_macrophages_volcano.csv` | G | gene: as above |
 | `panelF_gsea_tcells.csv` | F | plotted gene set, in plot order |
 | `panelH_gsea_macrophages.csv` | H | plotted gene set, in plot order |
+| `figS12_nfe2l2_expression.csv.gz` | S12 | cell: arm, subset, Nfe2l2, whether non-zero, fill colour |
+| `figS12_nfe2l2_pvalues.csv` | S12 | subset: n per arm, Wilcoxon rank-sum p, BH-adjusted p |
 
 ### Per-cell-type matrices, and putting them back together
 

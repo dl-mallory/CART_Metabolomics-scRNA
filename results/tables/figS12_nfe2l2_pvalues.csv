@@ -1,0 +1,8 @@
+CellType1,group1,group2,n_adipo,n_fibro,statistic,p,p_adj_BH
+Dendritic Cells,Adipo_Cocultured,Fibro_Cocultured,9,13,86,0.0708,0.1652
+Macrophages,Adipo_Cocultured,Fibro_Cocultured,615,2223,752369,0.000131,0.000917
+Monocytes,Adipo_Cocultured,Fibro_Cocultured,846,149,69380,0.0495,0.1652
+Myeloid Progenitors,Adipo_Cocultured,Fibro_Cocultured,368,25,3881,0.191,0.33425
+Neutrophils,Adipo_Cocultured,Fibro_Cocultured,27,12,148,0.685,0.799166666666667
+NK Cells,Adipo_Cocultured,Fibro_Cocultured,19,68,658,0.906,0.906
+T Cells,Adipo_Cocultured,Fibro_Cocultured,60,208,6599,0.498,0.6972
